@@ -20,5 +20,4 @@ public class User {
     private double weight;
     @Column(name = "Height", nullable = false)
     private double Height;
-
 }
