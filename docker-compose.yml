@@ -1,17 +1,19 @@
+version: "3.8"
+
 services:
   gymnetic-sql:
     image: mysql:8.0
     container_name: gymnetic-sql
     environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE:
+      MYSQL_ROOT_PASSWORD: gymnetic123!
+      MYSQL_DATABASE: gymnetic
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
   gymnetic-backend:
-    image: supplement-image
+    image: my-java-app
     container_name: gymnetic-backend
     ports:
       - "8080:8080"
