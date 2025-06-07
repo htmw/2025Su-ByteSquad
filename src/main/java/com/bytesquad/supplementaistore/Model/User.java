@@ -2,6 +2,7 @@ package com.bytesquad.supplementaistore.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,5 +20,8 @@ public class User {
     @Column(name = "Weight", nullable = false)
     private double weight;
     @Column(name = "Height", nullable = false)
-    private double Height;
+    private double height;
+
+    @OneToMany(mappedBy = "user")
+    private List<Purchase> purchases;
 }
