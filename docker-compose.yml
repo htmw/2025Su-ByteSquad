@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     container_name: gymnetic-sql
     environment:
-      MYSQL_ROOT_PASSWORD: gymnetic123!
+      MYSQL_ROOT_PASSWORD: platano612
       MYSQL_DATABASE: gymnetic
     ports:
       - "3306:3306"
@@ -13,16 +13,17 @@ services:
       - mysql-data:/var/lib/mysql
 
   gymnetic-backend:
-    image: my-java-app
+    build: .
     container_name: gymnetic-backend
     ports:
       - "8080:8080"
     depends_on:
       - gymnetic-sql
     environment:
-      SPRING_DATASOURCE_URL:
-      SPRING_DATASOURCE_USERNAME:
-      SPRING_DATASOURCE_PASSWORD:
+      SPRING_DATASOURCE_URL: jdbc:mysql://gymnetic-sql:3306/gymnetic
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: platano612
+    entrypoint: ["/app/wait-for-it.sh", "gymnetic-sql:3306", "--", "java", "-jar", "app.jar"]
 
 volumes:
   mysql-data:
