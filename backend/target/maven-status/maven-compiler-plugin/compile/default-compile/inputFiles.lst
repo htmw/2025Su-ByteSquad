@@ -1,0 +1,16 @@
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/model/User.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/dto/RegisterRequest.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/repository/SupplementRepository.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/controller/SupplementController.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/dto/LoginRequest.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/security/JwtAuthenticationFilter.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/service/CustomUserDetailsService.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/GymApplication.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/controller/AuthController.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/security/JwtTokenProvider.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/service/SupplementService.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/repository/UserRepository.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/dto/AuthResponse.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/model/Supplement.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/security/SecurityConfig.java
+/Users/adammiftahelidrissi/Downloads/gym/backend/src/main/java/com/fitness/gym/service/AuthService.java
