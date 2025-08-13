@@ -416,11 +416,9 @@ const WorkoutDetails = () => {
 
               <Tabs value={value} onChange={handleChange} sx={{ mb: 4 }}>
                 <Tab icon={<HelpOutline sx={{ mr: 1 }} />} label="Program Details" />
-                <Tab icon={<FitnessCenter sx={{ mr: 1 }} />} label="Generate Routine" />
               </Tabs>
 
-              {value === 0 ? (
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                   <Box>
                     <Typography variant="h6" gutterBottom>
                       Workout Schedule
@@ -540,9 +538,6 @@ const WorkoutDetails = () => {
                     </Box>
                   </Box>
                 </Box>
-              ) : (
-                <WorkoutRoutineGenerator program={program} />
-              )}
 
               <Box sx={{ display: 'flex', gap: 2, mt: 4, justifyContent: 'flex-end' }}>
                 <Button 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Button, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import WorkoutRoutineGenerator from './WorkoutRoutineGenerator';
 
 const WorkoutRoutines: React.FC = () => {
   const navigate = useNavigate();
@@ -77,6 +78,11 @@ const WorkoutRoutines: React.FC = () => {
             </Grid>
           ))}
         </Grid>
+
+        {/* AI Workout Generator Form - now at the end */}
+        <Box sx={{ mt: 8 }}>
+          <WorkoutRoutineGenerator />
+        </Box>
       </Container>
     </Box>
   );

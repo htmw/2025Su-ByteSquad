@@ -32,7 +32,7 @@ interface WorkoutResponse {
 
 export const generateWorkoutRoutine = async (preferences: WorkoutPreferences): Promise<WorkoutResponse> => {
   try {
-    const prompt = `Generate a ${preferences.duration} workout routine for a ${preferences.experienceLevel} level person.
+    const prompt = `Generate a 1-week workout routine for a ${preferences.experienceLevel} level person.
     
     Preferences:
     - Goal: ${preferences.goal}
@@ -40,21 +40,23 @@ export const generateWorkoutRoutine = async (preferences: WorkoutPreferences): P
     - Available Equipment: ${preferences.equipment.join(', ')}
     - Workout Frequency: ${preferences.frequency} days per week
     
-    Format the response as JSON with the following structure:
+    The user will repeat this 1-week plan for ${preferences.duration}. Make sure to include every day of the week (Day 1 to Day 7) in the response, even if some days are rest or active recovery days. Each day should have a list of exercises or a note if it is a rest day.
+    
+    Respond ONLY with valid JSON in the following format. Do NOT include any explanations, Markdown, or extra text. The response must be valid JSON and nothing else.
     {
       "workoutPlan": {
         "name": "Workout Program Name",
-        "description": "Brief description",
-        "duration": "Program duration",
+        "description": "Brief description (mention that this week is repeated for the selected duration)",
+        "duration": "1 week",
         "days": [
           {
             "day": 1,
             "exercises": [
               {
-                "name": "Exercise Name",
+                "name": "Exercise Name or 'Rest'",
                 "sets": Number,
-                "reps": "Reps",
-                "notes": "Any notes"
+                "reps": "Reps or ''",
+                "notes": "Any notes or instructions"
               }
             ]
           }
@@ -79,7 +81,14 @@ export const generateWorkoutRoutine = async (preferences: WorkoutPreferences): P
     });
 
     // Parse the response content
-    const content = response.data.choices[0].message.content;
+    let content = response.data.choices[0].message.content;
+    content = content.trim();
+    if (content.startsWith('```')) {
+      // Remove the first line (e.g., ```json or ```)
+      content = content.replace(/^```[a-zA-Z]*\n?/, '');
+      // Remove the last line (```)
+      content = content.replace(/```$/, '');
+    }
     return JSON.parse(content);
   } catch (error) {
     console.error('Error generating workout routine:', error);
