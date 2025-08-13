@@ -20,9 +20,9 @@ services:
     depends_on:
       - gymnetic-sql
     environment:
-      SPRING_DATASOURCE_URL:
-      SPRING_DATASOURCE_USERNAME:
-      SPRING_DATASOURCE_PASSWORD:
+      SPRING_DATASOURCE_URL: jdbc:mysql://gymnetic-sql:3306/gymnetic
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: gymnetic123!
 
 volumes:
   mysql-data:
