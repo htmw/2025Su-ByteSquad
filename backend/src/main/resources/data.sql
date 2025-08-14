@@ -1,5 +1,17 @@
 -- Delete existing data
 DELETE FROM supplements;
+DELETE FROM users;
+DELETE FROM user_roles;
+
+-- Insert test users (password is 'password' encrypted with BCrypt)
+INSERT INTO users (email, password, first_name, last_name, profile_picture, weight, height, fitness_goal, age) VALUES
+('test@example.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Test', 'User', NULL, 70.0, 175.0, 'MUSCLE_GAIN', 25),
+('admin@example.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin', 'User', NULL, 80.0, 180.0, 'GENERAL_FITNESS', 30);
+
+-- Insert user roles
+INSERT INTO user_roles (user_id, role) VALUES
+(1, 'USER'),
+(2, 'ADMIN');
 
 -- Insert sample supplements
 INSERT INTO supplements (name, description, price, image_url, category, brand, usage_instructions, benefits) VALUES

@@ -20,7 +20,8 @@ public class JwtTokenProvider {
     private int jwtExpirationInMs;
 
     private Key getSigningKey() {
-        return Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     public String generateToken(String email) {
