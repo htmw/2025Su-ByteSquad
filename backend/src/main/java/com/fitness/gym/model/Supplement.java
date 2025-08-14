@@ -21,6 +21,7 @@ public class Supplement {
     @Column(nullable = false)
     private BigDecimal price;
 
+    @Column(name = "image_url")
     private String imageUrl;
 
     @Column(nullable = false)
@@ -28,7 +29,7 @@ public class Supplement {
 
     private String brand;
 
-    @Column(nullable = false)
+    @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
     @Column(name = "usage_instructions")

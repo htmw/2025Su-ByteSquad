@@ -23,7 +23,16 @@ interface CartItem {
   price: number;
   quantity: number;
   imageUrl?: string;
+  category?: string;
 }
+
+const fallbackImages = {
+  protein: 'https://images.unsplash.com/photo-1546273043-76663a53f5bc',
+  preworkout: 'https://images.unsplash.com/photo-1574773054289-745b28746f8b',
+  vitamins: 'https://images.unsplash.com/photo-1507399929280-54b1725998d0',
+  recovery: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30',
+  default: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc'
+};
 
 const Cart = () => {
   const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
@@ -82,8 +91,12 @@ const Cart = () => {
                 <CardMedia
                   component="img"
                   sx={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 1 }}
-                  image={item.imageUrl || 'https://via.placeholder.com/140'}
+                  image={item.imageUrl || fallbackImages[item.category?.toLowerCase() as keyof typeof fallbackImages] || fallbackImages.default}
                   alt={item.name}
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.src = fallbackImages[item.category?.toLowerCase() as keyof typeof fallbackImages] || fallbackImages.default;
+                  }}
                 />
                 <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, ml: 2 }}>
                   <CardContent sx={{ flex: '1 0 auto', p: 0 }}>

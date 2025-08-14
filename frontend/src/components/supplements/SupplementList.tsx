@@ -19,7 +19,7 @@ import {
 } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useCart } from '../../context/CartContext';
-import axios from 'axios';
+import api from '../../utils/api';
 
 interface Supplement {
   id: number;
@@ -67,7 +67,7 @@ const SupplementList = () => {
   useEffect(() => {
     const fetchSupplements = async () => {
       try {
-        const response = await axios.get('/api/supplements');
+        const response = await api.get('/supplements');
         setSupplements(response.data.map(supplement => ({
           ...supplement,
           fallbackImage: fallbackImages[supplement.category.toLowerCase()] || fallbackImages.default

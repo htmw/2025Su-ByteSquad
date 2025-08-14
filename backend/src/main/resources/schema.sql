@@ -1,4 +1,6 @@
 -- Drop tables if they exist (in correct order due to foreign key constraints)
+DROP TABLE IF EXISTS purchase;
+DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS cart_items;
@@ -113,3 +115,23 @@ CREATE INDEX idx_orders_user_id ON orders(user_id);
 CREATE INDEX idx_order_items_order_id ON order_items(order_id);
 CREATE INDEX idx_cart_items_user_id ON cart_items(user_id);
 CREATE INDEX idx_supplement_reviews_supplement_id ON supplement_reviews(supplement_id);
+
+-- Create Product table (for supplement store)
+CREATE TABLE product (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL
+);
+
+-- Create Purchase table (for supplement store)
+CREATE TABLE purchase (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    quantity INT NOT NULL,
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+);
