@@ -1,0 +1,5 @@
+{
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.format.settings.url": "java.configuration.runtimes",
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
