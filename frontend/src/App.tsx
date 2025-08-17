@@ -16,6 +16,8 @@ import Navbar from "./components/layout/Navbar";
 import Home from "./components/home/Home";
 import WorkoutRoutines from "./components/workouts/WorkoutRoutines";
 import WorkoutDetails from "./components/workouts/WorkoutDetails";
+import Profile from "./components/profile/Profile";
+import Settings from "./components/profile/Settings";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 
@@ -76,6 +78,14 @@ const AppRoutes = () => {
           element={
             isAuthenticated ? <WorkoutDetails /> : <Navigate to="/login" />
           }
+        />
+        <Route
+          path="/profile"
+          element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/settings"
+          element={isAuthenticated ? <Settings /> : <Navigate to="/login" />}
         />
         <Route
           path="/"
