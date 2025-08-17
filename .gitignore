@@ -1,0 +1,45 @@
+# Application Properties (contains sensitive database credentials)
+backend/src/main/resources/application.properties
+backend/target/classes/application.properties
+
+# Maven build artifacts
+backend/target/
+backend/mvnw
+backend/mvnw.cmd
+
+# Node modules and build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Temporary files
+*.tmp
+*.temp
