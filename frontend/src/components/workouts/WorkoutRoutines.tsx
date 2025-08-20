@@ -21,16 +21,16 @@ const WorkoutRoutines: React.FC = () => {
       description: 'Targeted workouts to burn fat and improve body composition',
       duration: '8 weeks',
       level: 'Beginner',
-      image: 'https://plus.unsplash.com/premium_photo-1661690197844-a57eade71342?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZmF0JTIwbG9zc3xlbnwwfHwwfHx8MA%3D%3D',
-    },
-    {
-      id: 3,
-      title: 'Strength Training',
-      description: 'Focus on building functional strength and power',
-      duration: '16 weeks',
-      level: 'Advanced',
       image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&auto=format&fit=crop&q=60',
-    },
+          },
+      {
+        id: 3,
+        title: 'Yoga & Flexibility',
+        description: 'A gentle program focused on improving flexibility and reducing stress',
+        duration: '6 weeks',
+        level: 'Beginner',
+        image: 'https://plus.unsplash.com/premium_photo-1661690197844-a57eade71342?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZmF0JTIwbG9zc3xlbnwwfHwwfHx8MA%3D%3D',
+      },
   ];
 
   return (
