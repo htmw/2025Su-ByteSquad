@@ -87,7 +87,7 @@ const Navbar = () => {
             }
           }}
         >
-          GymFit
+          Gymnetics
         </Typography>
 
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
